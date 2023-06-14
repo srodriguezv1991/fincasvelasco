@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/ModoBlanco.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h2 class="py-3" style="text-align: center;"> Modificar Tratamiento</h2>
+	<section class="ps-5 py-3">
+	<form th:action="@{guardartratamiento}" th:object="${tratamiento}"  method="post" >
+		
+		<p>Tratamiento con ID: <input type="text" th:field="*{idtratamiento}" readonly="readonly"/>
+		<p>Nombre: <input type="text" th:field="*{nombre}"  />
+		<p>
+            Tipo: <select name="tipo">
+                    <option th:each="tipo : ${T(com.dawes.model.TipoTratamiento).values()}"
+                    th:value="${tipo}" th:text="${tipo}"></option>
+                    </select></p>
+		<button type="submit">Guardar</button>
+		
+	
+		
+		
+		
+		</form>
+		</section>
+</body>
+</html>

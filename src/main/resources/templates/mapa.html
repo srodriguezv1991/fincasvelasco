@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>fincas</title>
+<link rel="stylesheet" href="/css/ModoBlanco.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+<h1 class="text-center py-5">MAPA DE ARBOLES</h1>
+<div class="d-flex justify-content-center">
+<div id="titmapa"></div>
+  <h3>Finca: </h3>
+  <h3 th:text="${finca.nombre}"></h3>
+  </div>
+  <div class="d-flex justify-content-center">
+ <table id="mapa" border = 1>
+ <tr id="mapa" th:each="row : ${matriz}">
+    <td id="mapa" th:each="element : ${row}">
+      <span th:if="${element != -1}" th:text="${element}"></span>
+      <span th:if="${element == -1}">vacio</span>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="d-flex justify-content-center">
+<h3><a th:href="@{/finca/homefincas}"><button class="btn btn-terciary">Fincas</button></a></h3>
+<h3><a th:href="@{/}"><button class="btn btn-terciary">Pagina Principal</button></a></h3>
+</div>
+</div>
+
+</body>
+</html>

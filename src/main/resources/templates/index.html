@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/ModoBlanco.css" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1 class="py-3" style="text-align: center;">  Menu Principal</h1>
+	<div class="d-flex justify-content-center">
+	<table>
+		<tr class="text-center">
+			<th><a th:href="@{/admin}"><button type="submit" class="btn btn-primary">Administrador</button></a></th>
+			<th><a th:href="@{/}"><button type="submit" class="btn btn-primary">Invitado</button></a></th>
+			<th><a th:href="@{/logout}"><button type="submit" class="btn btn-primary">Salir</button></a></th>
+		</tr>
+	</table>
+	</div>
+	<div id="divimg">
+	<img id="img" src="./images/logobien.jpg" alt="Imagen no disponible">
+	</div>
+	<h1 id="titulopagprincipal">Bienvenid@s a nuestro sistema de gestion de fincas!</h1>
+<div class="fotos">
+	<img id="imgp" src="images/f1.jpg" alt="Imagen no disponible">
+	<img id="imgp" src="images/f2.jpg" alt="Imagen no disponible">
+	<img id="imgp" src="images/f3.jpg" alt="Imagen no disponible">
+	<img id="imgp" src="images/f4.jpg" alt="Imagen no disponible">
+</div>
+
+</body>
+</html>

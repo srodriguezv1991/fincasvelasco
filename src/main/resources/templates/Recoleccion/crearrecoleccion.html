@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/ModoBlanco.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+    <h2 class="py-3" style="text-align: center;"> Crear Recoleccion</h2>
+    <section class="ps-5 py-3" style="text-align: center;"> 
+	<form th:action="@{guardarrecoleccion}" method="post" th:object="${recoleccion}">
+		
+		<p>Fecha: <input type="date" th:field="*{fecharecoleccion}"/>
+		<p>Kilos recogidos: <input type="text" th:field="*{kilosrecogidos}" />
+		  <p>
+            Finca: <select th:field="*{finca}">
+                <option th:each="finca: ${finca}" th:value="${finca.idfinca}" th:text="${finca.nombre}"></option>
+            </select>
+        </p>
+        <p>
+            Variedad: <select th:field="*{variedad}">
+                <option th:each="variedad: ${variedad}" th:value="${variedad.idvariedad}" th:text="${variedad.nombre}"></option>
+            </select>
+        </p>
+		
+		<button type="submit">Guardar</button>
+		
+	
+		
+		
+		
+		</form>
+    </section>
+</body>
+</html>

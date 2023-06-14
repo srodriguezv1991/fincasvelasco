@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>nuevafinca</title>
+<link rel="stylesheet" href="/css/ModoBlanco.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+	<h2 class="py-3" style="text-align: center;"> Crear Finca</h2>
+    <section class="ps-5 py-3"> 
+	
+			<form class= "form" th:action="@{guardarfinca}" method="post" th:object="${finca}">
+		
+		<p>Nombre: <input type="text" th:field="*{nombre}"/>
+		<p>Superficie (m2): <input type="text" th:field="*{superficie}" />
+		
+		<button type="submit">Guardar</button>
+		
+	
+		
+		
+		
+		</form>
+	</section>
+</body>
+</html>

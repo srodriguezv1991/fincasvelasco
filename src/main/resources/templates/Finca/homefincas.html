@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>fincas</title>
+<link rel="stylesheet" href="/css/ModoBlanco.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script type="text/javascript">
+        function confirmDelete() {
+            return confirm("Estas seguro de que deseas borrar esto?");
+        }
+    </script>
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1 class="text-center py-3">CRUD Finca</h1>
+	<div class="d-flex justify-content-center"> 
+		<table border="1" cellpadding="10">
+			<tr class="text-center">
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Superficie (m2)</th>
+				<th >Accion</th>
+				
+			</tr>
+			<tr th:each="finca : ${fincas}">
+				<td th:text="${finca.idfinca}"></td>
+				<td th:text="${finca.nombre}"></td>
+				<td th:text="${finca.superficie}"></td>
+				<td><a th:href="'/finca/borrarfinca/' + ${finca.idfinca}"  onclick="return confirmDelete()"><button class="btn btn-secondary">Eliminar</button></a>
+				<a th:href="'/finca/modificarfinca/' + ${finca.idfinca}"><button class="btn btn-primary">Modificar</button></a>
+				<a th:href="'/finca/mapafinca/' + ${finca.idfinca}"><button class="btn btn-primary">Mapa</button></a></td>
+				
+			</tr>
+			
+		</table>
+	</div>
+		<div class="py-3 d-flex justify-content-center">
+			<h3><a th:href="@{/}"><button class="btn btn-primary">Pagina Principal</button></a></h3>
+		<h3><a th:href="@{/finca/crearfinca}"><button class="btn btn-primary">Insertar Finca</button></a></h3>
+		</div>
+		
+</body>
+</html>
